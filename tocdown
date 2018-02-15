@@ -1,0 +1,34 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+use Getopt::Std;
+
+use vars qw(%opts);
+use Env qw($HOME);
+
+our $VERSION = '1.0.0';
+
+getopts( 'hv', \%opts );
+
+my $verbose = 0;
+
+$verbose = 1 if $opts{v};
+
+if ( $opts{h} or not( keys %opts ) ) {
+    &help();
+}
+
+sub help {
+    print STDERR "$0 : $VERSION\n\n";
+    print STDERR "Usage: $0 [options]\n";
+    print STDERR "\toptions:\n";
+    print STDERR "\t-h : this help message\n";
+    print STDERR "\t-v : verbose output to STDERR\n";
+
+    print STDERR "Fork me on GitHub: https://jonasbn.github.io/tocdown/\n";
+
+    exit(0);
+}
+
+exit 0;

@@ -1,0 +1,14 @@
+sudo: false
+language: perl
+perl:
+- '5.24'
+before_install:
+- git config --global user.name "TravisCI"
+install:
+- cpanm Carton
+- carton install --deployment
+script:
+- carton exec -- prove --verbose
+notifications:
+  slack:
+    secure: K772J0OWyuEtb/w/E5lF4NfSd5cO0YS4wH8/YAnTgFV0nJVYUZOgORKcVb8/ZoOk30JnUL0Q6Qlvj1aXHwqNKPcpRudhZJ0krhHDd8RgMLrdPKMBtc5ILl6h00o8tg9txfKC3OzeWskeYETd+PCi+fmy2NewqFLYvh3bKU1bvvwKHw8wpKl7QQrJaNR8RbfdQ1IAcM7czGlVW8qBz5U2JmojtCVon3RIx+EhreMEnOa0EwIBO6NY6dsZ8kkRdnNAqyzhkKXDpG1Zu/g7CQqt5OSYPFV75iD+O4Kpi5uF9f3MsbpFX5TwUxqlh59dxaZ4G5LkoEchAMcBs/+ymBRppMbTo13yTf8He1RFTSlYAkMIb1hB4bHqEqgc8sI/cdP5YCD0z5uHAbL9MKssVwbLqxlc4Jkm10ATsdVsFQViGhknbTcZBpXagaRS1+jwY4GfU0t4zLhAZQz79oZmlD4nf8Ei4HxA+lmj9wQ+I6eNsONI6wJfrqu7OTcJk2qM/WXfGV8uGEKbwUTWwD9tP+nO1AtaQHOVZd2p07VRlxPgJzWlwjQpcrn8Fn/0FdGY3vGzspqApq5ocxBY1i4W/H7np4UbZuu/xUlj2zEVsPxz6sPGvBPNdfBrzBb6dR78YsGAhj94bm0X8jzR5dhzETXooWg4rgkLCS0x+zJGcwiB2Ww=
