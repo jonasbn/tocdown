@@ -1,4 +1,4 @@
-requires 'Getopt::Std', '0'; # in core since perl 5
+requires 'Getopt::Std', '1.13'; # in core since perl 5
 
 on 'test' => sub {
     requires 'Test2::V0';
